@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solved Sudoku</title>
+</head>
+<body>
+    <h1>Solved Sudoku Grid</h1>
+    <table border="1">
+        {% for row in grid %}
+            <tr>
+                {% for num in row %}
+                    <td style="width: 30px; height: 30px; text-align: center;">
+                        {{ num }}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'sudoku_form' %}">Solve Another</a>
+</body>
+</html>

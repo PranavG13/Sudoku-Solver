@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Solver</title>
+</head>
+<body>
+    <h1>Enter Sudoku Grid</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table border="1">
+            {% for i in grid_list %}
+                <tr>
+                    {% for j in grid_list %}
+                        <td>
+                            <input type="number" name="cell_{{ i }}_{{ j }}" value="0" min="0" max="9" style="width: 30px; text-align: center;">
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit">Solve</button>
+    </form>
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
